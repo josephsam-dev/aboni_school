@@ -35,10 +35,11 @@ class Result(models.Model):
 
     # Principal signature
 
-    principal_signature = models.ImageField(
-        upload_to="signatures/",
-        blank=True,
-        null=True
+    principal_signature = models.CharField(
+    max_length=100,
+    blank=True,
+    null=True
+)
     )
 
 
