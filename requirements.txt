@@ -22,4 +22,3 @@ tinycss2==1.2.1
 tzdata==2024.1
 urllib3==2.2.1
 whitenoise==6.7.0
-xhtml2pdf==0.2.15
