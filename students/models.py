@@ -18,8 +18,8 @@ class Student(models.Model):
 
     student_id = models.CharField(max_length=20, unique=True)
 
-    passport = models.CharField(
-    max_length=100,
+    passport = models.ImageField(
+    upload_to="passports/",
     blank=True,
     null=True
 )
