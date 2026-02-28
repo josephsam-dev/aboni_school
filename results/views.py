@@ -5,8 +5,6 @@ from django.http import HttpResponse
 from students.models import Student
 from .models import Result
 from .utils import render_to_pdf
-
-
 # ============================================
 # VIEW ALL RESULTS (OPTIONAL - ADMIN USE)
 # ============================================
