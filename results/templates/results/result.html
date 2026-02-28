@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Aboni School Result</title>
+
+<style>
+
+/* BODY */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+
+/* RESULT CONTAINER */
+
+.result-box {
+
+    width: 700px;
+    margin: auto;
+    margin-top: 20px;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: white;
+    position: relative;
+
+}
+
+
+/* SCHOOL HEADER */
+
+.school-header {
+
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+
+/* PASSPORT */
+
+.passport {
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+}
+
+.passport img {
+
+    width: 120px;
+    height: 140px;
+    object-fit: cover;
+    border: 2px solid black;
+
+}
+
+
+/* STUDENT INFO */
+
+.student-info {
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+
+
+/* TABLE */
+
+table {
+
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+table, th, td {
+
+    border: 1px solid black;
+
+}
+
+th, td {
+
+    padding: 8px;
+    text-align: center;
+
+}
+
+
+/* PRINT BUTTON */
+
+.print-btn {
+
+    margin-bottom: 15px;
+
+}
+
+
+/* PRINT MODE */
+
+@media print {
+
+    .print-btn {
+
+        display: none;
+
+    }
+
+    body {
+
+        background-color: white;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="result-box">
+
+
+<div class="school-header">
+
+<h2>ABONI SCHOOL</h2>
+
+<p>
+
+Address: Aboni, Lagos State<br>
+
+Session: 2025/2026<br>
+
+Term: First Term
+
+</p>
+
+</div>
+
+
+<button class="print-btn" onclick="window.print()">
+<a href="{% url 'result_pdf' student.id %}">
+<button>Download PDF</button>
+</a>
+
+Print Result
+
+</button>
+
+
+
+<div class="passport">
+
+{% if student.passport %}
+
+<img src="{{ student.passport.url }}">
+
+{% else %}
+
+<p><b>No Passport</b></p>
+
+{% endif %}
+
+</div>
+
+
+
+<div class="student-info">
+
+<p>
+
+<b>Name:</b> {{ student.first_name }} {{ student.last_name }}
+
+</p>
+
+
+<p>
+
+<b>Student ID:</b> {{ student.student_id }}
+<br><br>
+
+<b>Average:</b> {{ average }}
+
+<br>
+
+<b>Position:</b> {{ position }} out of {{ total_students }}
+
+</p>
+
+</div>
+
+
+
+<table>
+
+<<br><br>
+
+<p>
+<!-- RESULT TABLE -->
+
+<table width="100%" style="margin-top:20px; border-collapse: collapse;" border="1">
+
+<tr>
+
+<th>Subject</th>
+<th>CA</th>
+<th>Exam</th>
+<th>Total</th>
+<th>Grade</th>
+
+</tr>
+
+{% for result in results %}
+
+<tr>
+
+<td>{{ result.subject }}</td>
+<td>{{ result.ca_score }}</td>
+<td>{{ result.exam_score }}</td>
+<td>{{ result.total_score }}</td>
+<td>{{ result.grade }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+<b>Teacher Comment:</b>
+
+{% if results %}
+
+{{ results.0.teacher_comment }}
+
+{% else %}
+
+No comment available
+
+{% endif %}
+
+</p>
+
+
+<p>
+<b>Principal Signature:</b><br>
+
+{% if results and results.0.principal_signature %}
+
+<img src="{{ results.0.principal_signature.url }}" width="150">
+
+{% else %}
+
+No signature uploaded
+
+{% endif %}
+
+</p>

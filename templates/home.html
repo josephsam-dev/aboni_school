@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aboni Haven School Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Inter,sans-serif;
+margin:0;
+background:#f4f7fb;
+}
+
+/* HEADER */
+
+.header{
+background:#0b3d91;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.header img{
+width:70px;
+display:block;
+margin:auto;
+margin-bottom:10px;
+}
+
+.header h1{
+margin:0;
+font-size:28px;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:80px 20px;
+background:white;
+}
+
+.hero h2{
+font-size:36px;
+color:#0b3d91;
+}
+
+.hero p{
+color:#555;
+font-size:18px;
+margin-top:10px;
+}
+
+.login-btn{
+margin-top:30px;
+display:inline-block;
+background:#0b3d91;
+color:white;
+padding:15px 35px;
+font-size:18px;
+text-decoration:none;
+border-radius:8px;
+}
+
+.login-btn:hover{
+background:#072a66;
+}
+
+/* FEATURES */
+
+.features{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:60px;
+flex-wrap:wrap;
+}
+
+.card{
+background:white;
+padding:25px;
+width:250px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card h3{
+color:#0b3d91;
+}
+
+/* FOOTER */
+
+.footer{
+text-align:center;
+padding:20px;
+background:#0b3d91;
+color:white;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<img src="/media/logo.png">
+
+<h1>Aboni Haven School Portal</h1>
+
+</div>
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h2>Welcome to Aboni Haven</h2>
+
+<p>Secure Result Portal for Parents and Students</p>
+
+<a href="{% url 'login' %}" class="login-btn">
+
+Login to Portal
+
+</a>
+
+</div>
+
+
+<!-- FEATURES -->
+
+<div class="features">
+
+<div class="card">
+
+<h3>Check Results</h3>
+
+<p>View student academic performance instantly.</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Secure Access</h3>
+
+<p>Only authorised parents can login.</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Fast & Reliable</h3>
+
+<p>Access results anytime anywhere.</p>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+© {% now "Y" %} Aboni Haven School. All rights reserved.
+
+</div>
+
+
+</body>
+</html>

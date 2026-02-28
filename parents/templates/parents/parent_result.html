@@ -1,0 +1,56 @@
+<h2>Student Result</h2>
+
+<p>
+Name: {{ student.first_name }} {{ student.last_name }}
+</p>
+
+<table border="1">
+
+<tr>
+<th>Subject</th>
+<th>CA</th>
+<th>Exam</th>
+<th>Total</th>
+</tr>
+
+{% for result in results %}
+
+<tr>
+
+<td>{{ result.subject }}</td>
+
+<td>{{ result.ca_score }}</td>
+
+<td>{{ result.exam_score }}</td>
+
+<td>{{ result.total_score }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+
+<br><br>
+
+<p>
+<b>Teacher Comment:</b>
+{{ results.0.teacher_comment }}
+</p>
+
+
+<p>
+<b>Principal Signature:</b><br>
+
+{% if results.0.principal_signature %}
+
+<img src="{{ results.0.principal_signature.url }}" width="150">
+
+{% else %}
+
+No signature uploaded
+
+{% endif %}
+
+</p>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aboni School Result</title>
+</head>
+<body>
+
+<h2>ABONI SCHOOL</h2>
+<h3>All Student Results</h3>
+
+
+<p>
+<b>Average:</b> {{ average }}
+</p>
+
+<p>
+<b>Position:</b> {{ position }} out of {{ total_students }}
+</p>
+
+
+<table border="1" cellpadding="5">
+
+<tr>
+<th>Name</th>
+<th>Subject</th>
+<th>CA</th>
+<th>Exam</th>
+<th>Total</th>
+<th>Grade</th>
+</tr>
+
+
+{% for result in results %}
+
+<tr>
+
+<td>
+{{ result.student.first_name }}
+{{ result.student.last_name }}
+</td>
+
+<td>{{ result.subject }}</td>
+
+<td>{{ result.ca_score }}</td>
+
+<td>{{ result.exam_score }}</td>
+
+<td>{{ result.total_score }}</td>
+
+<td>{{ result.grade }}</td>
+
+</tr>
+
+{% endfor %}
+
+
+</table>
+
+
+</body>
+</html>
